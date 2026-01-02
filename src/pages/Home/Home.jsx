@@ -4,6 +4,7 @@ import Stats from './Stats/Stats'
 import PrincipalMessage from './PrincipalMessage/PrincipalMessage'
 import KeyFeatures from './KeyFeatures/KeyFeatures'
 import LatestNotice from './LatestNotice/LatestNotice'
+import VirtualTour from './VirtualTour/VirtualTour'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <PrincipalMessage></PrincipalMessage>
       <KeyFeatures></KeyFeatures>
       <LatestNotice></LatestNotice>
+      <VirtualTour></VirtualTour>
     </>
   )
 }
