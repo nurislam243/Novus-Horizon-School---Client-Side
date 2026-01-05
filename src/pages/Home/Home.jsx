@@ -5,6 +5,7 @@ import PrincipalMessage from './PrincipalMessage/PrincipalMessage'
 import KeyFeatures from './KeyFeatures/KeyFeatures'
 import LatestNotice from './LatestNotice/LatestNotice'
 import VirtualTour from './VirtualTour/VirtualTour'
+import ClubsAndActivities from './ClubsAndActivities/ClubsAndActivities'
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <KeyFeatures></KeyFeatures>
       <LatestNotice></LatestNotice>
       <VirtualTour></VirtualTour>
+      <ClubsAndActivities></ClubsAndActivities>
     </>
   )
 }

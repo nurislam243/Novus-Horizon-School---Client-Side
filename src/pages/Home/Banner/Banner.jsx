@@ -1,58 +1,81 @@
-import React, { useRef } from 'react';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React from 'react';
+import { FaGraduationCap, FaArrowRight, FaClipboardCheck } from 'react-icons/fa';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
-// import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-
-const Banner = () => {
-  const progressCircle = useRef(null);
-  const progressContent = useRef(null);
-  const onAutoplayTimeLeft = (s, time, progress) => {
-    progressCircle.current.style.setProperty('--progress', 1 - progress);
-    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
-  };
+const Hero = () => {
   return (
-    <>
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        onAutoplayTimeLeft={onAutoplayTimeLeft}
-        className="mySwiper"
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-        <div className="autoplay-progress" slot="container-end">
-          <svg viewBox="0 0 48 48" ref={progressCircle}>
-            <circle cx="24" cy="24" r="20"></circle>
-          </svg>
-          <span ref={progressContent}></span>
-        </div>
-      </Swiper>
-    </>
-  );
-}
-  
+    <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-slate-900">
+      
+      {/* Background Image with Dark Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.pexels.com/photos/35473413/pexels-photo-35473413.jpeg?_gl=1*1qwlrz4*_ga*MTU0MzI3NDU5OS4xNzY3NjIwNDUx*_ga_8JE65Q40S6*czE3Njc2MjA0NTAkbzEkZzEkdDE3Njc2MjA0NTEkajU5JGwwJGgw" 
+          alt="School Building" 
+          className="w-full h-full object-cover opacity-60"
+        />
+        {/* Gradient Overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
+      </div>
 
-export default Banner
+      <div className="container mx-auto px-6 md:px-12 relative z-10 py-20">
+        <div className="max-w-3xl space-y-8">
+          
+          {/* Top Badge */}
+          <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/40 text-amber-500 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+            </span>
+            CBSE Affiliated | Estd. 1995
+          </div>
+
+          {/* Main Heading */}
+          <h1 className="text-5xl md:text-7xl font-black text-white leading-[1.1]">
+            Shaping Tomorrow's <br />
+            <span className="text-amber-500">Leaders</span> Today
+          </h1>
+
+          {/* Subtext */}
+          <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl font-medium">
+            Empowering students with knowledge, values, and skills to excel in academics and life. 
+            Join our family of 2500+ students and 100+ experienced educators.
+          </p>
+
+          {/* Action Buttons */}
+          <div className="flex flex-wrap gap-5 pt-4">
+            {/* Primary Action - Results (Goes to Results Page) */}
+            <button className="btn btn-primary btn-lg rounded-xl shadow-xl shadow-indigo-500/20 group px-8">
+              <FaClipboardCheck className="text-xl" />
+              Check Results
+              <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </button>
+
+            {/* Secondary Action - Admission */}
+            <button className="btn btn-outline btn-lg text-white border-white/40 hover:bg-white hover:text-black rounded-xl px-8 backdrop-blur-sm">
+              <FaGraduationCap className="text-xl" />
+              Admissions Open
+            </button>
+          </div>
+
+          {/* Bottom Trust Indicators */}
+          <div className="flex items-center gap-8 pt-6 border-t border-white/10">
+            <div className="flex flex-col">
+              <span className="text-white font-bold text-xl">Admissions 2025-26</span>
+              <span className="text-slate-400 text-xs uppercase tracking-widest">Now Open</span>
+            </div>
+            <div className="h-10 w-px bg-white/10"></div>
+            <div className="flex flex-col">
+              <span className="text-white font-bold text-xl">100% Result</span>
+              <span className="text-slate-400 text-xs uppercase tracking-widest">Board Examinations</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Subtle Bottom Fade to next section */}
+      <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-base-100 to-transparent"></div>
+    </section>
+  );
+};
+
+export default Hero;
