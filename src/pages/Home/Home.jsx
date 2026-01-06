@@ -7,6 +7,7 @@ import LatestNotice from './LatestNotice/LatestNotice'
 import VirtualTour from './VirtualTour/VirtualTour'
 import ClubsAndActivities from './ClubsAndActivities/ClubsAndActivities'
 import Gallery from './Gallery/Gallery'
+import Testimonials from './Testimonials/Testimonials'
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <VirtualTour></VirtualTour>
       <ClubsAndActivities></ClubsAndActivities>
       <Gallery></Gallery>
+      <Testimonials></Testimonials>
     </>
   )
 }
