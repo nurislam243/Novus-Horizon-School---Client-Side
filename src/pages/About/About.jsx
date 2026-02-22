@@ -1,8 +1,8 @@
-import React from 'react'
+import PageBanner from "../../components/Shared/PageBanner/PageBanner"
 
 const About = () => {
   return (
-    <div>About</div>
+    <PageBanner></PageBanner>
   )
 }
 
