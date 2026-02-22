@@ -1,8 +1,12 @@
 import PageBanner from "../../components/Shared/PageBanner/PageBanner"
+import VisionMission from "./VisionMission/VisionMission"
 
 const About = () => {
   return (
-    <PageBanner></PageBanner>
+    <div>
+      <PageBanner></PageBanner>
+      <VisionMission></VisionMission>
+    </div>
   )
 }
 
