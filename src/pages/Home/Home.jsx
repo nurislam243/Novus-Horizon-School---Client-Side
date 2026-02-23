@@ -6,7 +6,7 @@ import KeyFeatures from './KeyFeatures/KeyFeatures'
 import LatestNotice from './LatestNotice/LatestNotice'
 import VirtualTour from './VirtualTour/VirtualTour'
 import ClubsAndActivities from './ClubsAndActivities/ClubsAndActivities'
-import Gallery from './Gallery/Gallery'
+import HomeGallery from './HomeGallery/HomeGallery'
 import Testimonials from './Testimonials/Testimonials'
 import LatestNews from './LatestNews/LatestNews'
 import Contact from './Contact/Contact'
@@ -21,7 +21,7 @@ const Home = () => {
       <LatestNotice></LatestNotice>
       <VirtualTour></VirtualTour>
       <ClubsAndActivities></ClubsAndActivities>
-      <Gallery></Gallery>
+      <HomeGallery></HomeGallery>
       <Testimonials></Testimonials>
       <LatestNews></LatestNews>
       <Contact></Contact>

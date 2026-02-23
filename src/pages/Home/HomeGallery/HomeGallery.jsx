@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Gallery = () => {
+const HomeGallery = () => {
   const photos = [
     {
       id: 1,
@@ -94,4 +94,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default HomeGallery;
