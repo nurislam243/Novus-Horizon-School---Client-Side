@@ -1,0 +1,77 @@
+[
+  {
+    "id": "1",
+    "name": "Dr. Sarah Williams",
+    "role": "Head of Science",
+    "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+    "qual": "PhD in Physics",
+    "subject": "Physics & Quantum Mechanics",
+    "experience": "15+ Years",
+    "email": "sarah.w@school.edu",
+    "phone": "+880 1712 345678",
+    "bio": "Dedicated to inspiring young minds through the wonders of physics. I believe in practical learning and critical thinking.",
+    "education": [
+      "PhD in Physics - University of Oxford",
+      "M.Sc. in Applied Science - Dhaka University",
+      "B.Sc. in Physics - Chittagong University"
+    ],
+    "achievements": [
+      "Best Teacher Award 2024",
+      "Published 10+ Research Papers",
+      "National Science Fair Mentor"
+    ],
+    "social": {
+      "linkedin": "#",
+      "twitter": "#"
+    }
+  },
+  {
+    "id": "2",
+    "name": "Mr. Robert Chen",
+    "role": "Senior English Faculty",
+    "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
+    "qual": "MA in English Literature",
+    "subject": "English & Creative Writing",
+    "experience": "12+ Years",
+    "email": "robert.chen@school.edu",
+    "phone": "+880 1812 987654",
+    "bio": "Passionate about literature and language. I aim to help students find their own voice through writing and speech.",
+    "education": [
+      "MA in English Literature - Cambridge University",
+      "BA in English - Jahangirnagar University"
+    ],
+    "achievements": [
+      "Literary Excellence Award 2023",
+      "Coordinator of Debate Club",
+      "Editor of School Magazine"
+    ],
+    "social": {
+      "linkedin": "#",
+      "twitter": "#"
+    }
+  },
+  {
+    "id": "3",
+    "name": "Mrs. Nusrat Jahan",
+    "role": "Mathematics Specialist",
+    "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
+    "qual": "M.Sc. in Pure Mathematics",
+    "subject": "Higher Math & Calculus",
+    "experience": "10+ Years",
+    "email": "nusrat.math@school.edu",
+    "phone": "+880 1912 112233",
+    "bio": "Making mathematics simple and fun for everyone. Logic is the key to solving any problem in life.",
+    "education": [
+      "M.Sc. in Mathematics - Rajshahi University",
+      "B.Sc. in Mathematics - BUET"
+    ],
+    "achievements": [
+      "Math Olympiad Coach",
+      "Top Performer Faculty 2022"
+    ],
+    "social": {
+      "linkedin": "#",
+      "twitter": "#"
+    }
+  }
+]
