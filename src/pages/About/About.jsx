@@ -1,5 +1,7 @@
 import PageBanner from "../../components/Shared/PageBanner/PageBanner"
+import CoreValues from "./CoreValues/CoreValues"
 import PrincipalMessage from "./PrincipalMessage/PrincipalMessage"
+import StatsSection from "./StatsSection/StatsSection"
 import VisionMission from "./VisionMission/VisionMission"
 
 const About = () => {
@@ -8,6 +10,8 @@ const About = () => {
       <PageBanner></PageBanner>
       <VisionMission></VisionMission>
       <PrincipalMessage></PrincipalMessage>
+      <StatsSection></StatsSection>
+      <CoreValues></CoreValues>
     </div>
   )
 }
