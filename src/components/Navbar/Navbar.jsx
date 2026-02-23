@@ -15,15 +15,15 @@ const Navbar = () => {
           <ul className="p-2 bg-base-100 rounded-t-none z-[50] w-60 shadow-xl border border-base-200">
             <li><NavLink to="/teachers">Teacher's Profile</NavLink></li>
             <li><NavLink to="/fees">Fee Structure</NavLink></li>
-            <li><NavLink to="/routine-syllabus">Class Routine & Syllabus</NavLink></li>
-            <li><NavLink to="/calendar">Academic Calendar</NavLink></li>
+            {/* <li><NavLink to="/routine-syllabus">Class Routine & Syllabus</NavLink></li> */}
+            {/* <li><NavLink to="/calendar">Academic Calendar</NavLink></li> */}
             <li><NavLink to="/admissions">Admissions</NavLink></li>
           </ul>
         </details>
       </li>
 
       {/* Portals Dropdown */}
-      <li className="dropdown">
+      {/* <li className="dropdown">
         <details>
           <summary className="flex items-center gap-1">Portals</summary>
           <ul className="p-2 bg-base-100 rounded-t-none z-[50] w-52 shadow-xl border border-base-200">
@@ -31,8 +31,9 @@ const Navbar = () => {
             <li><NavLink to="/attendance">Online Attendance</NavLink></li>
           </ul>
         </details>
-      </li>
+      </li> */}
 
+      <li><NavLink to="/results">Result Portal</NavLink></li>
       <li><NavLink to="/gallery">Gallery</NavLink></li>
       <li><NavLink to="/about">About Us</NavLink></li>
     </>

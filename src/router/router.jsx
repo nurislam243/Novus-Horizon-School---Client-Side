@@ -6,6 +6,7 @@ import Gallery from "../pages/Gallery/Gallery";
 import Teachers from "../pages/Teachers/Teachers";
 import TeacherDetails from "../pages/TeacherDetails/TeacherDetails";
 import FeeStructure from "../pages/FeeStructure/FeeStructure";
+import Admissions from "../pages/Admissions/Admissions";
 
 export const router = createBrowserRouter([
   {
@@ -35,7 +36,11 @@ export const router = createBrowserRouter([
         {
           path: "/fees",
           Component: FeeStructure
+        },
+        {
+          path: "/admissions",
+          Component: Admissions
         }
-    ]
+      ]
   },  
 ]);
