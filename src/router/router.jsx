@@ -5,6 +5,7 @@ import About from "../pages/About/About";
 import Gallery from "../pages/Gallery/Gallery";
 import Teachers from "../pages/Teachers/Teachers";
 import TeacherDetails from "../pages/TeacherDetails/TeacherDetails";
+import FeeStructure from "../pages/FeeStructure/FeeStructure";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
         {
           path: "/teachers/:id",
           Component: TeacherDetails
+        },
+        {
+          path: "/fees",
+          Component: FeeStructure
         }
     ]
   },  
