@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
 import Gallery from "../pages/Gallery/Gallery";
 import Teachers from "../pages/Teachers/Teachers";
+import TeacherDetails from "../pages/TeacherDetails/TeacherDetails";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
         {
           path: "teachers",
           Component: Teachers
+        },
+        {
+          path: "/teachers/:id",
+          Component: TeacherDetails
         }
     ]
   },  
