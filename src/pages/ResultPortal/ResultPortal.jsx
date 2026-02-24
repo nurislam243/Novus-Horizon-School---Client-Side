@@ -1,0 +1,169 @@
+import React, { useState } from 'react';
+import { FaUser, FaUsers, FaSearch, FaFileDownload, FaTrophy, FaGraduationCap, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
+
+const ResultPortal = () => {
+  const [searchMode, setSearchMode] = useState('individual');
+  const [hasSearched, setHasSearched] = useState(false);
+
+  // --- Demo JSON Data ---
+  const sampleData = {
+    individual: {
+      studentName: "Md. Arif Ahmed",
+      studentId: "2026101",
+      class: "Class 8",
+      exam: "Monthly Test - January",
+      totalGPA: "5.00",
+      grade: "A+",
+      subjects: [
+        { name: "Bangla", marks: 88, grade: "A+", point: 5.0 },
+        { name: "English", marks: 92, grade: "A+", point: 5.0 },
+        { name: "Mathematics", marks: 95, grade: "A+", point: 5.0 },
+        { name: "Science", marks: 82, grade: "A", point: 4.0 },
+      ]
+    },
+    classWise: [
+      { rank: 1, name: "Arif Ahmed", roll: "801", gpa: "5.00", status: "Passed", color: "amber" },
+      { rank: 2, name: "Sara Islam", roll: "802", gpa: "4.95", status: "Passed", color: "slate" },
+      { rank: 3, name: "Nayeem Khan", roll: "805", gpa: "4.80", status: "Passed", color: "orange" },
+      { rank: 4, name: "Muna Akter", roll: "803", gpa: "4.50", status: "Passed", color: "gray" },
+      { rank: 5, name: "Rakib Hasan", roll: "810", gpa: "3.90", status: "Passed", color: "gray" },
+    ]
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setHasSearched(true);
+  };
+
+  return (
+    <div className="min-h-screen bg-white pb-20 pt-10">
+      <div className="max-w-6xl mx-auto px-4">
+        
+        {/* --- Header Section --- */}
+        <div className="mb-12 flex flex-col md:flex-row justify-between items-end gap-6 border-b border-gray-100 pb-10">
+          <div>
+            <h1 className="text-5xl font-black italic uppercase tracking-tighter">Result <span className="text-gray-300">Dashboard</span></h1>
+            <p className="text-gray-400 font-bold uppercase text-[10px] tracking-[0.4em] mt-2">Academic Performance & Analytics</p>
+          </div>
+
+          <div className="flex bg-gray-100 p-1 rounded-2xl">
+            <button onClick={() => {setSearchMode('individual'); setHasSearched(false)}} className={`px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${searchMode === 'individual' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-400'}`}>Individual</button>
+            <button onClick={() => {setSearchMode('class'); setHasSearched(false)}} className={`px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${searchMode === 'class' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-400'}`}>Class-wise</button>
+          </div>
+        </div>
+
+        {/* --- Search Filters --- */}
+        <form onSubmit={handleSearch} className="bg-gray-50 border border-gray-100 rounded-[2.5rem] p-6 md:p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-end mb-16">
+          <div className="space-y-3">
+            <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-2 italic">{searchMode === 'individual' ? 'Student ID' : 'Select Class'}</label>
+            {searchMode === 'individual' ? (
+              <input required type="text" placeholder="Ex: 2026101" className="w-full p-4 bg-white border border-gray-200 rounded-2xl focus:border-primary outline-none font-bold text-gray-700 transition-all" />
+            ) : (
+              <select className="w-full p-4 bg-white border border-gray-200 rounded-2xl focus:border-primary outline-none font-bold text-gray-700 cursor-pointer appearance-none">
+                <option>Class 6</option><option>Class 7</option><option>Class 8</option>
+              </select>
+            )}
+          </div>
+
+          <div className="space-y-3">
+            <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-2 italic">Exam Type</label>
+            <select className="w-full p-4 bg-white border border-gray-200 rounded-2xl focus:border-primary outline-none font-bold text-gray-700 cursor-pointer appearance-none">
+              <option>Monthly Test</option><option>Half Yearly</option><option>Final Exam</option>
+            </select>
+          </div>
+
+          <div className="space-y-3">
+            <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-2 italic">Month/Session</label>
+            <select className="w-full p-4 bg-white border border-gray-200 rounded-2xl focus:border-primary outline-none font-bold text-gray-700 cursor-pointer appearance-none">
+              <option>January</option><option>February</option><option>Session 2026</option>
+            </select>
+          </div>
+
+          <button type="submit" className="w-full h-[58px] bg-gray-900 text-white font-black uppercase tracking-widest rounded-2xl shadow-xl hover:bg-primary transition-all flex items-center justify-center gap-3">
+            <FaSearch size={14} /> Search
+          </button>
+        </form>
+
+        {/* --- Result Rendering --- */}
+        {hasSearched ? (
+          <div className="animate-in fade-in slide-in-from-bottom-5 duration-500">
+            {searchMode === 'individual' ? (
+              /* --- Individual View --- */
+              <div className="max-w-3xl mx-auto bg-white border border-gray-100 rounded-[3rem] overflow-hidden shadow-2xl shadow-gray-200/50">
+                <div className="p-10 bg-gray-900 text-white flex justify-between items-end">
+                  <div>
+                    <h2 className="text-3xl font-black italic uppercase tracking-tighter mb-1">Mark Sheet</h2>
+                    <p className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.2em]">{sampleData.individual.studentName} • {sampleData.individual.class}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-5xl font-black italic text-primary leading-none">{sampleData.individual.grade}</p>
+                    <p className="text-[10px] font-black text-gray-500 uppercase mt-1">GPA {sampleData.individual.totalGPA}</p>
+                  </div>
+                </div>
+                <div className="p-8 md:p-12 space-y-5">
+                  {sampleData.individual.subjects.map((sub, idx) => (
+                    <div key={idx} className="flex justify-between items-center py-4 border-b border-gray-50 last:border-0">
+                      <span className="font-bold text-gray-800">{sub.name}</span>
+                      <div className="flex gap-8 items-center font-black italic">
+                        <span className="text-gray-300 text-sm">Marks: {sub.marks}</span>
+                        <span className="text-primary">{sub.grade}</span>
+                      </div>
+                    </div>
+                  ))}
+                  <button className="w-full mt-8 py-4 bg-gray-50 text-gray-900 font-black uppercase tracking-widest rounded-2xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2 text-sm">
+                    <FaFileDownload /> Download Transcript
+                  </button>
+                </div>
+              </div>
+            ) : (
+              /* --- Class-wise View --- */
+              <div className="space-y-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {sampleData.classWise.slice(0, 3).map((top, i) => (
+                    <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-gray-100 text-center shadow-sm relative overflow-hidden group hover:border-primary/30 transition-all">
+                      <FaTrophy className={`text-3xl mx-auto mb-4 ${top.rank === 1 ? 'text-amber-500' : top.rank === 2 ? 'text-gray-400' : 'text-orange-400'}`} />
+                      <p className="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-1 italic">Rank #{top.rank}</p>
+                      <p className="text-xl font-black text-gray-900 italic">{top.name}</p>
+                      <p className="text-xs font-bold text-primary mt-1 uppercase tracking-widest">GPA {top.gpa}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="bg-white border border-gray-100 rounded-[2.5rem] overflow-hidden shadow-sm">
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="bg-gray-50/50 border-b border-gray-100">
+                        <th className="p-6 text-[10px] font-black uppercase tracking-widest text-gray-400">Roll</th>
+                        <th className="p-6 text-[10px] font-black uppercase tracking-widest text-gray-400">Student Name</th>
+                        <th className="p-6 text-[10px] font-black uppercase tracking-widest text-gray-400 text-center">GPA</th>
+                        <th className="p-6 text-[10px] font-black uppercase tracking-widest text-gray-400 text-right">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-50">
+                      {sampleData.classWise.map((row, idx) => (
+                        <tr key={idx} className="hover:bg-gray-50/50 transition-colors group">
+                          <td className="p-6 font-bold text-gray-300 italic group-hover:text-primary transition-colors">#{row.roll}</td>
+                          <td className="p-6 font-bold text-gray-800">{row.name}</td>
+                          <td className="p-6 font-black text-gray-900 text-center tracking-tighter">{row.gpa}</td>
+                          <td className="p-6 text-right">
+                            <span className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase text-green-500 bg-green-50 px-3 py-1 rounded-full"><FaCheckCircle /> {row.status}</span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="text-center py-20 flex flex-col items-center justify-center space-y-4 opacity-10">
+            <FaGraduationCap size={100} />
+            <p className="font-black uppercase tracking-[1em] text-sm">Enter Details</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default ResultPortal;

@@ -7,6 +7,7 @@ import Teachers from "../pages/Teachers/Teachers";
 import TeacherDetails from "../pages/TeacherDetails/TeacherDetails";
 import FeeStructure from "../pages/FeeStructure/FeeStructure";
 import Admissions from "../pages/Admissions/Admissions";
+import ResultPortal from "../pages/ResultPortal/ResultPortal";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
         {
           path: "/admissions",
           Component: Admissions
+        },
+        {
+          path: "/results",
+          Component: ResultPortal
         }
       ]
   },  
