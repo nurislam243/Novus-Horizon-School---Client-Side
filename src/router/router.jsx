@@ -10,6 +10,7 @@ import Admissions from "../pages/Admissions/Admissions";
 import ResultPortal from "../pages/ResultPortal/ResultPortal";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import DashboardLayout from "../layouts/DashboardLayouts";
+import DashboardLayouts from "../layouts/DashboardLayouts";
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +57,6 @@ export const router = createBrowserRouter([
   },  
   {
     path: "dashboard",
-    Component: DashboardLayout
+    Component: DashboardLayouts
   }
 ]);

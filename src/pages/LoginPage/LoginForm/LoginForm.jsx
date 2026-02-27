@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
 import { FaUser, FaLock, FaArrowRight } from 'react-icons/fa';
+import useAuth from '../../../hooks/useAuth';
+import { useNavigate } from 'react-router';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    console.log("Logging in with:", email, password);
+  const { login, user } = useAuth();
+  console.log(user)
+
+  const handleLogin = async (e) => {
+      e.preventDefault();
+
+      setError('');
+      try {
+          await login(email, password);
+          navigate('/dashboard'); 
+      } catch (err) {
+          setError('Invalid email or password.');
+      }
   };
 
   return (
@@ -70,6 +84,12 @@ const LoginForm = () => {
               Forgot?
             </button>
           </div>
+
+          {error && (
+            <div className="bg-red-50 text-red-600 text-[10px] font-bold uppercase tracking-widest p-3 rounded-xl border border-red-100 text-center italic">
+              {error}
+            </div>
+          )}
 
           {/* Submit Button */}
           <button 

@@ -1,23 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaShieldAlt } from 'react-icons/fa';
 import LoginForm from './LoginForm/LoginForm';
+import useAuth from '../../hooks/useAuth';
 
 const LoginPage = () => {
   return (
     <div className="min-h-screen bg-[#fafafa] flex items-center justify-center p-4 sm:p-6 md:p-10 relative overflow-hidden">
       
-      {/* --- Background Aesthetic Elements (Glows) --- */}
+      {/* Background Aesthetic Elements */}
 
       <div className="absolute top-[-5%] left-[-5%] w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-primary/10 rounded-full blur-[80px] md:blur-[120px] animate-pulse pointer-events-none"></div>
       <div className="absolute bottom-[-5%] right-[-5%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-blue-100 rounded-full blur-[100px] md:blur-[150px] pointer-events-none"></div>
 
-      {/* Main Container: flex-col (mobile) md:flex-row (desktop) */}
+      {/* Main Container*/}
       <div className="max-w-[1150px] w-full bg-white/40 backdrop-blur-3xl border border-white/50 rounded-[2.5rem] md:rounded-[4rem] shadow-[0_30px_100px_-20px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col md:flex-row relative z-10">
         
-        {/* --- Left Side: Dark Glass Overlay --- */}
+        {/* Left Side */}
         <div className="w-full md:w-[45%] bg-gray-900 m-3 md:m-4 rounded-[2rem] md:rounded-[3.5rem] relative flex flex-col justify-between p-8 md:p-12 overflow-hidden shadow-2xl min-h-[300px] md:min-h-full">
           
-          {/* Animated Gradient Background */}
+          {/* Gradient Background */}
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black opacity-90"></div>
           
           {/* Decorative Glow inside Left Side */}
@@ -47,7 +48,7 @@ const LoginPage = () => {
           </div>
         </div>
 
-        {/* --- Right Side: Login Form --- */}
+        {/* Right Side: Login Form */}
         <div className="w-full md:w-[55%] p-8 sm:p-12 md:p-20 flex flex-col justify-center bg-transparent">
           <div className="max-w-[400px] mx-auto w-full">
             
