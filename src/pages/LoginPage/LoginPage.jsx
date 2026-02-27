@@ -7,7 +7,7 @@ const LoginPage = () => {
     <div className="min-h-screen bg-[#fafafa] flex items-center justify-center p-4 sm:p-6 md:p-10 relative overflow-hidden">
       
       {/* --- Background Aesthetic Elements (Glows) --- */}
-      {/* মোবাইলে গ্লো গুলো একটু ছোট করা হয়েছে */}
+
       <div className="absolute top-[-5%] left-[-5%] w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-primary/10 rounded-full blur-[80px] md:blur-[120px] animate-pulse pointer-events-none"></div>
       <div className="absolute bottom-[-5%] right-[-5%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-blue-100 rounded-full blur-[100px] md:blur-[150px] pointer-events-none"></div>
 
@@ -15,7 +15,6 @@ const LoginPage = () => {
       <div className="max-w-[1150px] w-full bg-white/40 backdrop-blur-3xl border border-white/50 rounded-[2.5rem] md:rounded-[4rem] shadow-[0_30px_100px_-20px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col md:flex-row relative z-10">
         
         {/* --- Left Side: Dark Glass Overlay --- */}
-        {/* m-3 (mobile) m-4 (desktop) এবং প্যাডিং অ্যাডজাস্ট করা হয়েছে */}
         <div className="w-full md:w-[45%] bg-gray-900 m-3 md:m-4 rounded-[2rem] md:rounded-[3.5rem] relative flex flex-col justify-between p-8 md:p-12 overflow-hidden shadow-2xl min-h-[300px] md:min-h-full">
           
           {/* Animated Gradient Background */}
@@ -32,7 +31,6 @@ const LoginPage = () => {
               <span className="text-white font-black uppercase tracking-[0.4em] text-[8px] md:text-[9px]">Secure Portal</span>
             </div>
             
-            {/* ফন্ট সাইজ মোবাইলের জন্য ছোট করা হয়েছে: text-3xl (mobile) md:text-6xl (desktop) */}
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-white italic leading-[1.1] tracking-tighter uppercase mb-4 md:mb-6">
               Empowering <br /> 
               The <span className="text-primary">Next</span> <br /> 

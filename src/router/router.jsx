@@ -9,6 +9,7 @@ import FeeStructure from "../pages/FeeStructure/FeeStructure";
 import Admissions from "../pages/Admissions/Admissions";
 import ResultPortal from "../pages/ResultPortal/ResultPortal";
 import LoginPage from "../pages/LoginPage/LoginPage";
+import DashboardLayout from "../layouts/DashboardLayouts";
 
 export const router = createBrowserRouter([
   {
@@ -53,4 +54,8 @@ export const router = createBrowserRouter([
         }
       ]
   },  
+  {
+    path: "dashboard",
+    Component: DashboardLayout
+  }
 ]);
