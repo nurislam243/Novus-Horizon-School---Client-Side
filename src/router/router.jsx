@@ -54,9 +54,40 @@ export const router = createBrowserRouter([
           Component: LoginPage
         }
       ]
-  },  
+  },
+
+  // Admin Routes 
   {
-    path: "dashboard",
-    Component: DashboardLayouts
+    path: "/admin",
+    Component: DashboardLayouts,
+    children: [
+        {
+          path: "overview",
+          Component: About
+        }
+      ]
+  },
+
+  // Teacher Routes
+  {
+    path: "/teacher",
+    Component: DashboardLayouts,
+    children: [
+        {
+          path: "overview",
+          Component: About
+        }
+      ]
+  },
+  // Student Routes
+  {
+    path: "/student",
+    Component: DashboardLayouts,
+    children: [
+        {
+          path: "overview",
+          Component: About
+        }
+      ]
   }
 ]);

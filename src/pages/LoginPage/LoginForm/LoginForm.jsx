@@ -9,8 +9,8 @@ const LoginForm = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const { login, user } = useAuth();
-  console.log(user)
+  const { login, role } = useAuth();
+  console.log(role)
 
   const handleLogin = async (e) => {
       e.preventDefault();
@@ -18,11 +18,15 @@ const LoginForm = () => {
       setError('');
       try {
           await login(email, password);
-          navigate('/dashboard'); 
+          if (role === 'admin') navigate('/admin/overview');
+          else if (role === 'teacher') navigate('/teacher/overview');
+          else navigate('/student/overview');
       } catch (err) {
           setError('Invalid email or password.');
       }
+
   };
+
 
   return (
     <div className="w-full">

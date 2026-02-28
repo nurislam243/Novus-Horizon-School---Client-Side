@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { FaShieldAlt } from 'react-icons/fa';
 import LoginForm from './LoginForm/LoginForm';
-import useAuth from '../../hooks/useAuth';
 
 const LoginPage = () => {
   return (
