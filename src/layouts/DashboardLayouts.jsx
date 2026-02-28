@@ -26,7 +26,7 @@ const DashboardLayout = () => {
                 <Sidebar 
                     role={role} 
                     isCollapsed={isCollapsed} 
-                    closeMobile={() => setIsMobileOpen(false)} 
+                    closeMobile={() => setIsMobileOpen(false)}
                 />
             </div>
 
