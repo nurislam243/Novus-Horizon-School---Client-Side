@@ -10,7 +10,6 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const { login, role } = useAuth();
-  console.log(role)
 
   const handleLogin = async (e) => {
       e.preventDefault();

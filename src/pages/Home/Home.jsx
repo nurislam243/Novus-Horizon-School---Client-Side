@@ -12,6 +12,7 @@ import LatestNews from './LatestNews/LatestNews'
 import Contact from './Contact/Contact'
 
 const Home = () => {
+  
   return (
     <>
       <Banner></Banner>

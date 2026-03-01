@@ -1,39 +1,30 @@
 import React, { useState } from 'react';
 import { FaUser, FaUsers, FaSearch, FaFileDownload, FaTrophy, FaGraduationCap, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
+import useFetchResult from '../../hooks/useFetchResult';
 
 const ResultPortal = () => {
   const [searchMode, setSearchMode] = useState('individual');
   const [hasSearched, setHasSearched] = useState(false);
+  const [filters, setFilters] = useState({
+        className: '',
+        examName: '',
+        academicYear: '',
+        studentId: ''
+    });
 
-  // --- Demo JSON Data ---
-  const sampleData = {
-    individual: {
-      studentName: "Md. Arif Ahmed",
-      studentId: "2026101",
-      class: "Class 8",
-      exam: "Monthly Test - January",
-      totalGPA: "5.00",
-      grade: "A+",
-      subjects: [
-        { name: "Bangla", marks: 88, grade: "A+", point: 5.0 },
-        { name: "English", marks: 92, grade: "A+", point: 5.0 },
-        { name: "Mathematics", marks: 95, grade: "A+", point: 5.0 },
-        { name: "Science", marks: 82, grade: "A", point: 4.0 },
-      ]
-    },
-    classWise: [
-      { rank: 1, name: "Arif Ahmed", roll: "801", gpa: "5.00", status: "Passed", color: "amber" },
-      { rank: 2, name: "Sara Islam", roll: "802", gpa: "4.95", status: "Passed", color: "slate" },
-      { rank: 3, name: "Nayeem Khan", roll: "805", gpa: "4.80", status: "Passed", color: "orange" },
-      { rank: 4, name: "Muna Akter", roll: "803", gpa: "4.50", status: "Passed", color: "gray" },
-      { rank: 5, name: "Rakib Hasan", roll: "810", gpa: "3.90", status: "Passed", color: "gray" },
-    ]
-  };
+  const { data: result, isLoading } = useFetchResult(filters);
+  console.log(result)
 
   const handleSearch = (e) => {
-    e.preventDefault();
-    setHasSearched(true);
-  };
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        setFilters({
+            className: formData.get('className'),
+            examName: formData.get('examName'),
+            academicYear: formData.get('academicYear'),
+            studentId: formData.get('studentId'),
+        });
+    };
 
   return (
     <div className="min-h-screen bg-white pb-20 pt-10">
@@ -60,7 +51,7 @@ const ResultPortal = () => {
               <input required type="text" placeholder="Ex: 2026101" className="w-full p-4 bg-white border border-gray-200 rounded-2xl focus:border-primary outline-none font-bold text-gray-700 transition-all" />
             ) : (
               <select className="w-full p-4 bg-white border border-gray-200 rounded-2xl focus:border-primary outline-none font-bold text-gray-700 cursor-pointer appearance-none">
-                <option>Class 6</option><option>Class 7</option><option>Class 8</option>
+                <option>Class 6</option><option>Class 7</option><option>10</option>
               </select>
             )}
           </div>
@@ -68,14 +59,14 @@ const ResultPortal = () => {
           <div className="space-y-3">
             <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-2 italic">Exam Type</label>
             <select className="w-full p-4 bg-white border border-gray-200 rounded-2xl focus:border-primary outline-none font-bold text-gray-700 cursor-pointer appearance-none">
-              <option>Monthly Test</option><option>Half Yearly</option><option>Final Exam</option>
+              <option>Monthly Test</option><option>Half Yearly</option><option>Final Exam</option><option>Final</option>
             </select>
           </div>
 
           <div className="space-y-3">
             <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-2 italic">Month/Session</label>
             <select className="w-full p-4 bg-white border border-gray-200 rounded-2xl focus:border-primary outline-none font-bold text-gray-700 cursor-pointer appearance-none">
-              <option>January</option><option>February</option><option>Session 2026</option>
+              <option>January</option><option>February</option><option>Session 2026</option><option>2024</option>
             </select>
           </div>
 
