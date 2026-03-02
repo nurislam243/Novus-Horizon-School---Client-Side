@@ -13,23 +13,35 @@ const ResultPortal = () => {
     });
 
   const { data: result, isLoading } = useFetchResult(filters);
-  console.log(result)
+  if (result) {
+      console.log("My Result Data:", result);
+  }
 
   const handleSearch = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
-        setFilters({
+        const newFilters = {
             className: formData.get('className'),
             examName: formData.get('examName'),
             academicYear: formData.get('academicYear'),
             studentId: formData.get('studentId'),
-        });
+        };
+
+        setFilters(newFilters);
+        setHasSearched(true);
     };
+    
+    if (isLoading) {
+      return <div className="text-center py-20">Loading Results...</div>;
+    }
+
+    if (hasSearched && !result) {
+      return <div className="text-center py-20 text-red-500">No data found for these filters.</div>;
+    }
 
   return (
     <div className="min-h-screen bg-white pb-20 pt-10">
       <div className="max-w-6xl mx-auto px-4">
-        
         {/* --- Header Section --- */}
         <div className="mb-12 flex flex-col md:flex-row justify-between items-end gap-6 border-b border-gray-100 pb-10">
           <div>
@@ -45,27 +57,31 @@ const ResultPortal = () => {
 
         {/* --- Search Filters --- */}
         <form onSubmit={handleSearch} className="bg-gray-50 border border-gray-100 rounded-[2.5rem] p-6 md:p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-end mb-16">
+          
+         {searchMode === 'individual' && (
+            <div className="space-y-3">
+              <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-2 italic">Student Id</label>
+              <input required name="studentId" type="text" placeholder="Ex: 2026101" className="w-full p-4 bg-white border border-gray-200 rounded-2xl focus:border-primary outline-none font-bold text-gray-700 transition-all" />
+            </div>
+          )}
+          
           <div className="space-y-3">
-            <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-2 italic">{searchMode === 'individual' ? 'Student ID' : 'Select Class'}</label>
-            {searchMode === 'individual' ? (
-              <input required type="text" placeholder="Ex: 2026101" className="w-full p-4 bg-white border border-gray-200 rounded-2xl focus:border-primary outline-none font-bold text-gray-700 transition-all" />
-            ) : (
-              <select className="w-full p-4 bg-white border border-gray-200 rounded-2xl focus:border-primary outline-none font-bold text-gray-700 cursor-pointer appearance-none">
+            <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-2 italic">Select Class</label>
+              <select name='className' className="w-full p-4 bg-white border border-gray-200 rounded-2xl focus:border-primary outline-none font-bold text-gray-700 cursor-pointer appearance-none">
                 <option>Class 6</option><option>Class 7</option><option>10</option>
               </select>
-            )}
           </div>
 
           <div className="space-y-3">
             <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-2 italic">Exam Type</label>
-            <select className="w-full p-4 bg-white border border-gray-200 rounded-2xl focus:border-primary outline-none font-bold text-gray-700 cursor-pointer appearance-none">
+            <select name='examName' className="w-full p-4 bg-white border border-gray-200 rounded-2xl focus:border-primary outline-none font-bold text-gray-700 cursor-pointer appearance-none">
               <option>Monthly Test</option><option>Half Yearly</option><option>Final Exam</option><option>Final</option>
             </select>
           </div>
 
           <div className="space-y-3">
             <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-2 italic">Month/Session</label>
-            <select className="w-full p-4 bg-white border border-gray-200 rounded-2xl focus:border-primary outline-none font-bold text-gray-700 cursor-pointer appearance-none">
+            <select name='academicYear' className="w-full p-4 bg-white border border-gray-200 rounded-2xl focus:border-primary outline-none font-bold text-gray-700 cursor-pointer appearance-none">
               <option>January</option><option>February</option><option>Session 2026</option><option>2024</option>
             </select>
           </div>
@@ -79,24 +95,24 @@ const ResultPortal = () => {
         {hasSearched ? (
           <div className="animate-in fade-in slide-in-from-bottom-5 duration-500">
             {searchMode === 'individual' ? (
-              /* --- Individual View --- */
+              /* Individual View */
               <div className="max-w-3xl mx-auto bg-white border border-gray-100 rounded-[3rem] overflow-hidden shadow-2xl shadow-gray-200/50">
                 <div className="p-10 bg-gray-900 text-white flex justify-between items-end">
                   <div>
                     <h2 className="text-3xl font-black italic uppercase tracking-tighter mb-1">Mark Sheet</h2>
-                    <p className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.2em]">{sampleData.individual.studentName} • {sampleData.individual.class}</p>
+                    <p className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.2em]">{result?.student?.name} • {result.class}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-5xl font-black italic text-primary leading-none">{sampleData.individual.grade}</p>
-                    <p className="text-[10px] font-black text-gray-500 uppercase mt-1">GPA {sampleData.individual.totalGPA}</p>
+                    {/* <p className="text-5xl font-black italic text-primary leading-none">{result.grade}</p> */}
+                    <p className="text-[10px] font-black text-gray-500 uppercase mt-1">GPA {result.totalGPA}</p>
                   </div>
                 </div>
                 <div className="p-8 md:p-12 space-y-5">
-                  {sampleData.individual.subjects.map((sub, idx) => (
+                  {result.subjects.map((sub, idx) => (
                     <div key={idx} className="flex justify-between items-center py-4 border-b border-gray-50 last:border-0">
-                      <span className="font-bold text-gray-800">{sub.name}</span>
+                      <span className="font-bold text-gray-800">{sub.subjectName}</span>
                       <div className="flex gap-8 items-center font-black italic">
-                        <span className="text-gray-300 text-sm">Marks: {sub.marks}</span>
+                        <span className="text-gray-300 text-sm">Marks: {sub.obtainedMarks}</span>
                         <span className="text-primary">{sub.grade}</span>
                       </div>
                     </div>
@@ -110,7 +126,7 @@ const ResultPortal = () => {
               /* --- Class-wise View --- */
               <div className="space-y-12">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {sampleData.classWise.slice(0, 3).map((top, i) => (
+                  {result.slice(0, 3).map((top, i) => (
                     <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-gray-100 text-center shadow-sm relative overflow-hidden group hover:border-primary/30 transition-all">
                       <FaTrophy className={`text-3xl mx-auto mb-4 ${top.rank === 1 ? 'text-amber-500' : top.rank === 2 ? 'text-gray-400' : 'text-orange-400'}`} />
                       <p className="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-1 italic">Rank #{top.rank}</p>
@@ -130,11 +146,11 @@ const ResultPortal = () => {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-50">
-                      {sampleData.classWise.map((row, idx) => (
+                      {result.map((row, idx) => (
                         <tr key={idx} className="hover:bg-gray-50/50 transition-colors group">
-                          <td className="p-6 font-bold text-gray-300 italic group-hover:text-primary transition-colors">#{row.roll}</td>
-                          <td className="p-6 font-bold text-gray-800">{row.name}</td>
-                          <td className="p-6 font-black text-gray-900 text-center tracking-tighter">{row.gpa}</td>
+                          <td className="p-6 font-bold text-gray-300 italic group-hover:text-primary transition-colors">#{row.student.roll}</td>
+                          <td className="p-6 font-bold text-gray-800">{row.student?.name}</td>
+                          <td className="p-6 font-black text-gray-900 text-center tracking-tighter">{row?.gpa}</td>
                           <td className="p-6 text-right">
                             <span className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase text-green-500 bg-green-50 px-3 py-1 rounded-full"><FaCheckCircle /> {row.status}</span>
                           </td>

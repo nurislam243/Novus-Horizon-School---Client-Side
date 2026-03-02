@@ -6,7 +6,7 @@ const useFetchResult = (filters) => {
         queryKey: ['results', filters],
         queryFn: async () => {
             
-            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/results/view-results`, {
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/view-results`, {
                 params: filters
             });
             return data.data;
