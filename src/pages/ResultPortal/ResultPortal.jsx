@@ -30,7 +30,25 @@ const ResultPortal = () => {
         setFilters(newFilters);
         setHasSearched(true);
     };
-    
+
+    const handleDownload = () => {
+      const params = {
+        className: filters.className,
+        examName: filters.examName,
+        academicYear: filters.academicYear,
+      };
+
+      if (searchMode === 'individual' && filters.studentId) {
+        params.studentId = filters.studentId;
+      }
+
+      const queryParams = new URLSearchParams(params).toString();
+      
+      const downloadUrl = `${import.meta.env.VITE_API_URL}/api/download-pdf?${queryParams}`;
+      
+      window.open(downloadUrl, '_blank');
+    };
+
     if (isLoading) {
       return <div className="text-center py-20">Loading Results...</div>;
     }
@@ -117,7 +135,9 @@ const ResultPortal = () => {
                       </div>
                     </div>
                   ))}
-                  <button className="w-full mt-8 py-4 bg-gray-50 text-gray-900 font-black uppercase tracking-widest rounded-2xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2 text-sm">
+                  <button 
+                  onClick={handleDownload}
+                  className="w-full mt-8 py-4 bg-gray-50 text-gray-900 font-black uppercase tracking-widest rounded-2xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2 text-sm">
                     <FaFileDownload /> Download Transcript
                   </button>
                 </div>
@@ -158,6 +178,12 @@ const ResultPortal = () => {
                       ))}
                     </tbody>
                   </table>
+
+                  <button 
+                  onClick={handleDownload}
+                  className="w-full mt-8 py-4 bg-gray-50 text-gray-900 font-black uppercase tracking-widest rounded-2xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2 text-sm">
+                    <FaFileDownload /> Download Transcript
+                  </button>
                 </div>
               </div>
             )}
