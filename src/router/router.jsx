@@ -11,6 +11,7 @@ import ResultPortal from "../pages/ResultPortal/ResultPortal";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import DashboardLayouts from "../layouts/DashboardLayouts";
 import AddStudent from "../pages/Dashboard/Admin/AddStudent/AddStudent";
+import AddTeacher from "../pages/Dashboard/Admin/AddTeacher/AddTeacher";
 
 export const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
         {
           path: "add-student",
           Component: AddStudent
+        },
+        {
+          path: "add-teacher",
+          Component: AddTeacher
         }
       ]
   },
