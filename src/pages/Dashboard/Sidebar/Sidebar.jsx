@@ -1,20 +1,23 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router';
+import { Link } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
   
 import { HiOutlineAcademicCap, HiOutlineBookOpen, HiOutlineChartBar, HiOutlineHome, HiOutlineUsers } from 'react-icons/hi';
 import { HiOutlineBanknotes, HiOutlineBellAlert, HiOutlineCalendarDays, HiOutlineClipboardDocumentCheck, HiOutlineCog6Tooth, HiOutlineDocumentChartBar } from 'react-icons/hi2';
+import { FaUserPlus } from 'react-icons/fa';
+import useUserRole from '../../../hooks/useUserRole';
 
 
 const Sidebar = ({ isCollapsed, closeMobile }) => {
-    const { role, logout } = useAuth();
-    const location = useLocation();
+    const { logout, user } = useAuth();
+    const { role } = useUserRole();
+    console.log(user.email)
 
- 
 
 const menuItems = {
     admin: [
         { name: 'Overview', path: '/admin/overview', icon: <HiOutlineHome size={20} /> },
+        { name: 'Add Student', path: '/admin/add-student', icon: <FaUserPlus size={20} /> },
         { name: 'Manage Teachers', path: 'admin/teachers', icon: <HiOutlineUsers size={20} /> },
         { name: 'Manage Students', path: '/admin/students', icon: <HiOutlineAcademicCap size={20} /> },
         { name: 'Financials', path: '/admin/accounts', icon: <HiOutlineBanknotes size={20} /> },

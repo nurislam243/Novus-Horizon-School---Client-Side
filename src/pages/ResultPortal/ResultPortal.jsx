@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaUser, FaUsers, FaSearch, FaFileDownload, FaTrophy, FaGraduationCap, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
+import { FaSearch, FaFileDownload, FaTrophy, FaGraduationCap, FaCheckCircle } from 'react-icons/fa';
 import useFetchResult from '../../hooks/useFetchResult';
 
 const ResultPortal = () => {

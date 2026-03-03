@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { auth } from "../../firebase/firebaseConfig";
 import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
@@ -6,7 +5,6 @@ import { AuthContext } from "./AuthContext";
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [role, setRole] = useState(null);
     const [loading, setLoading] = useState(true);
 
     const login = (email, password) => {
@@ -19,17 +17,7 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser);
-            
-            // Handle Role Detection
-            if (currentUser?.email === "admin@novushorizon.com") {
-                setRole("admin");
-            } else if (currentUser?.email.includes("teacher")) {
-                setRole("teacher");
-            } else {
-                setRole("student");
-            }
-            
+            setUser(currentUser);            
             setLoading(false);
         });
         return () => unsubscribe();
@@ -37,7 +25,6 @@ export const AuthProvider = ({ children }) => {
 
     const authInfo = {
         user,
-        role,
         loading,
         login,
         logout
