@@ -3,11 +3,9 @@ import { Link } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 
 import {
-  HiOutlineAcademicCap,
   HiOutlineBookOpen,
   HiOutlineChartBar,
   HiOutlineHome,
-  HiOutlineUsers,
 } from "react-icons/hi";
 import {
   HiOutlineBanknotes,
@@ -17,13 +15,12 @@ import {
   HiOutlineCog6Tooth,
   HiOutlineDocumentChartBar,
 } from "react-icons/hi2";
-import { FaChalkboardTeacher, FaUserPlus } from "react-icons/fa";
+import { FaChalkboardTeacher, FaList, FaStumbleupon, FaUserPlus } from "react-icons/fa";
 import useUserRole from "../../../hooks/useUserRole";
 
 const Sidebar = ({ isCollapsed, closeMobile }) => {
-  const { logout, user } = useAuth();
+  const { logout } = useAuth();
   const { role } = useUserRole();
-  console.log(user.email);
 
   const menuItems = {
     admin: [
@@ -38,9 +35,9 @@ const Sidebar = ({ isCollapsed, closeMobile }) => {
         icon: <FaUserPlus size={20} />,
       },
       {
-        name: "Stuent List",
+        name: "Student List",
         path: "/admin/student-list",
-        icon: <FaUserPlus size={20} />,
+        icon: <FaList size={20} />,
       },
       {
         name: "Add Teacher",
@@ -48,14 +45,14 @@ const Sidebar = ({ isCollapsed, closeMobile }) => {
         icon: <FaChalkboardTeacher size={20} />,
       },
       {
-        name: "Manage Teachers",
-        path: "admin/teachers",
-        icon: <HiOutlineUsers size={20} />,
+        name: "Teacher List",
+        path: "/admin/teacher-list",
+        icon: <FaChalkboardTeacher size={20} />,
       },
       {
-        name: "Manage Students",
-        path: "/admin/students",
-        icon: <HiOutlineAcademicCap size={20} />,
+        name: "ExamManager",
+        path: "/admin/exam-manager",
+        icon: <FaStumbleupon size={20} />
       },
       {
         name: "Financials",
