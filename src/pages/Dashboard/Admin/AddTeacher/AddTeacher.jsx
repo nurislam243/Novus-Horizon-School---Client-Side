@@ -15,6 +15,8 @@ import {
 } from "react-icons/fa";
 import axios from "axios";
 import Swal from "sweetalert2";
+import ImageInput from "../../../../components/Shared/ImageInput/ImageInput";
+import { imageUploader } from "../../../../utils/imageUploader";
 
 const AddTeacher = () => {
   const [loading, setLoading] = useState(false);
@@ -42,37 +44,38 @@ const AddTeacher = () => {
     setLoading(true);
 
     const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
-
-    const teacherData = {
-      ...data,
-      specialistIn: specialistIn
-        .split(",")
-        .map((s) => s.trim())
-        .filter((s) => s !== ""),
-      awards: awards
-        .split(",")
-        .map((a) => a.trim())
-        .filter((a) => a !== ""),
-      responsibilities: responsibilities
-        .split(",")
-        .map((r) => r.trim())
-        .filter((r) => r !== ""),
-      academicJourney: academicJourney.filter(
-        (item) => item.degree && item.institution,
-      ),
-    };
-
-    Object.keys(teacherData).forEach((key) => {
-      if (teacherData[key] === "" || teacherData[key] === null)
-        delete teacherData[key];
-    });
+    const imageFile = formData.get("teacherImage");
 
     try {
+      const imageUrl = await imageUploader(imageFile);
+
+      const data = Object.fromEntries(formData.entries());
+
+      const teacherData = {
+        ...data,
+        image: imageUrl,
+        specialistIn: specialistIn
+          .split(",")
+          .map((s) => s.trim())
+          .filter((s) => s !== ""),
+        awards: awards
+          .split(",")
+          .map((a) => a.trim())
+          .filter((a) => a !== ""),
+        responsibilities: responsibilities
+          .split(",")
+          .map((r) => r.trim())
+          .filter((r) => r !== ""),
+        academicJourney: academicJourney.filter(
+          (item) => item.degree && item.institution,
+        ),
+      };
+
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/api/add-teacher`,
         teacherData,
       );
+
       if (response.data.success || response.status === 201) {
         Swal.fire({
           title: "Success!",
@@ -80,6 +83,7 @@ const AddTeacher = () => {
           icon: "success",
           confirmButtonColor: "#111827",
         });
+
         e.target.reset();
         setSpecialistIn("");
         setAwards("");
@@ -89,8 +93,12 @@ const AddTeacher = () => {
     } catch (error) {
       Swal.fire({
         title: "Error!",
-        text: error.response?.data?.message || "Failed to add teacher.",
+        text:
+          error.response?.data?.message ||
+          error.message ||
+          "Failed to add teacher.",
         icon: "error",
+        confirmButtonColor: "#EF4444",
       });
     } finally {
       setLoading(false);
@@ -148,6 +156,7 @@ const AddTeacher = () => {
                 />
               </div>
             </div>
+            <ImageInput name="teacherImage"></ImageInput>
           </div>
 
           {/* Contact & Social Section */}
