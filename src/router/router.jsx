@@ -13,6 +13,10 @@ import DashboardLayouts from "../layouts/DashboardLayouts";
 import AddStudent from "../pages/Dashboard/Admin/AddStudent/AddStudent";
 import AddTeacher from "../pages/Dashboard/Admin/AddTeacher/AddTeacher";
 import StudentList from "../pages/Dashboard/Admin/StudentList/StudentList";
+import TeacherList from "../pages/Dashboard/Admin/TeacherList/TeacherList";
+import ResultSetup from "../pages/Dashboard/Admin/ExamManager/ExamManager";
+import ExamManager from "../pages/Dashboard/Admin/ExamManager/ExamManager";
+import ResultEntryPage from "../pages/Dashboard/ResultEntryPage/ResultEntryPage";
 
 export const router = createBrowserRouter([
   {
@@ -78,7 +82,19 @@ export const router = createBrowserRouter([
         {
           path: "student-list",
           Component: StudentList
-        }
+        },
+        {
+          path: "teacher-list",
+          Component: TeacherList
+        },
+        {
+          path: "exam-manager",
+          Component: ExamManager
+        },
+        {
+          path: "result-entry/:examId",
+          Component: ResultEntryPage
+        },
       ]
   },
 
