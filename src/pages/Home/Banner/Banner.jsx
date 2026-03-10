@@ -8,7 +8,7 @@ const Hero = () => {
       {/* Background Image with Dark Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.pexels.com/photos/35473413/pexels-photo-35473413.jpeg?_gl=1*1qwlrz4*_ga*MTU0MzI3NDU5OS4xNzY3NjIwNDUx*_ga_8JE65Q40S6*czE3Njc2MjA0NTAkbzEkZzEkdDE3Njc2MjA0NTEkajU5JGwwJGgw" 
+          src="https://i.ibb.co.com/ccD0ZmjH/scholl-banner.webp" 
           alt="School Building" 
           className="w-full h-full object-cover opacity-60"
         />
