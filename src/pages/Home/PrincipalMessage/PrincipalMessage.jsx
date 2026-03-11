@@ -3,8 +3,8 @@ import React from 'react';
 const PrincipalMessage = () => {
   return (
     <section className="py-16 bg-base-100">
-      <div className="container mx-auto px-4 md:px-10">
-        <div className="flex flex-col md:flex-row items-center gap-12 bg-base-100 p-6 md:p-10">
+      <div className="max-w-384 mx-auto @[1580px]:px-0 px-4 md:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row items-center gap-12 bg-base-100">
           
           {/* Left Side: Principal's Image */}
           <div className="w-full md:w-1/2 lg:w-2/5">

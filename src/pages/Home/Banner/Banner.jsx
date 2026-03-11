@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaGraduationCap, FaArrowRight, FaClipboardCheck } from 'react-icons/fa';
 
-const Hero = () => {
+const Banner = () => {
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-slate-900">
       
@@ -16,7 +16,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10 py-20">
+      <div className="max-w-384 w-full mx-auto @[1580px]:px-0 px-4 md:px-6 lg:px-8 relative z-10 py-20">
         <div className="max-w-3xl space-y-8">
           
           {/* Top Badge */}
@@ -78,4 +78,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Banner;

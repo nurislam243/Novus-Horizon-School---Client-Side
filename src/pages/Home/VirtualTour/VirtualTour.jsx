@@ -3,7 +3,7 @@ import { FaPlay, FaTimes, FaGlobeAmericas } from 'react-icons/fa';
 
 const VirtualTour = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
-  const videoId = "YOUR_YOUTUBE_VIDEO_ID"; 
+  const videoId = "Qj-tirIeDKo"; 
 
   return (
     <section className="py-20 bg-base-100">
@@ -28,7 +28,7 @@ const VirtualTour = () => {
           
           <div className="relative aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white dark:border-slate-800 cursor-pointer">
             <img 
-              src="https://images.unsplash.com/photo-1523050853051-be991f85a6ad?q=80&w=2000" 
+              src="https://i.ytimg.com/vi/oK26yR0wCwI/maxresdefault.jpg" 
               alt="Campus Tour" 
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
