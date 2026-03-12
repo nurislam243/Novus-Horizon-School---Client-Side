@@ -33,8 +33,8 @@ const VisionMission = () => {
   ];
 
   return (
-    <section className="relative z-20 -mt-20 pb-20 px-4">
-      <div className="container mx-auto">
+    <section className="relative z-20 -mt-20 pb-20 @[1580px]:px-0 px-4 md:px-6 lg:px-8">
+      <div className="max-w-384 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {data.map((item) => (
             <div 
