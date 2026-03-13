@@ -18,7 +18,6 @@ const About = () => {
     <div>
       <PageBanner></PageBanner>
       <VisionMission></VisionMission>
-      <PrincipalMessage></PrincipalMessage>
       <StatsSection></StatsSection>
       <CoreValues></CoreValues>
       <HistoricalTimeline></HistoricalTimeline>
