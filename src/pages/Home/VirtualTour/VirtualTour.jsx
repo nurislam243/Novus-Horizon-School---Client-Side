@@ -26,7 +26,7 @@ const VirtualTour = () => {
         <div className="relative max-w-5xl mx-auto group">
           <div className="absolute -inset-4 bg-primary/20 rounded-[3rem] blur-2xl group-hover:bg-primary/30 transition duration-500"></div>
           
-          <div className="relative aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white dark:border-slate-800 cursor-pointer">
+          <div className="relative aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl cursor-pointer">
             <img 
               src="https://i.ytimg.com/vi/oK26yR0wCwI/maxresdefault.jpg" 
               alt="Campus Tour" 

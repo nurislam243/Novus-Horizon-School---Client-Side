@@ -51,7 +51,7 @@ const KeyFeatures = () => {
           {features.map((feature) => (
             <div 
               key={feature.id} 
-              className="group bg-base-100 rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-base-200"
+              className="group bg-base-100 rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-base-200"
             >
               {/* Image Container with Icon Overlay */}
               <div className="relative h-64 overflow-hidden">
@@ -65,7 +65,7 @@ const KeyFeatures = () => {
                   {feature.icon}
                 </div>
                 {/* Overlay effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent"></div>
               </div>
 
               {/* Text Content */}

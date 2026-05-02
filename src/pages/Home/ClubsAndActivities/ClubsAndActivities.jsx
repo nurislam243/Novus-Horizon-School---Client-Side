@@ -67,10 +67,10 @@ const ClubsAndActivities = () => {
           {clubs.map((club) => (
             <div 
               key={club.id} 
-              className="group bg-base-100 p-8 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-base-300 flex flex-col items-start"
+              className="group bg-base-100 p-8 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-300 border border-base-300 flex flex-col items-start"
             >
               {/* Icon Circle */}
-              <div className={`${club.color} text-white p-5 rounded-2xl text-3xl shadow-lg mb-6 group-hover:scale-110 transition-transform`}>
+              <div className={`${club.color} text-white p-5 rounded-[20px] text-3xl shadow-lg mb-6 group-hover:scale-110 transition-transform`}>
                 {club.icon}
               </div>
 

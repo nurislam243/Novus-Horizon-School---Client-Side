@@ -10,7 +10,7 @@ const LoginPage = () => {
     <div className="min-h-screen bg-[#fafafa] flex items-center justify-center p-4 sm:p-6 md:p-10 relative overflow-hidden">
       {/* Background Aesthetic Elements */}
 
-      <div className="absolute top-[-5%] left-[-5%] w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-primary/10 rounded-full blur-[80px] md:blur-[120px] animate-pulse pointer-events-none"></div>
+      <div className="absolute top-[-5%] left-[-5%] w-62.5 md:w-100 h-62.5 md:h-[400px] bg-primary/10 rounded-full blur-[80px] md:blur-[120px] animate-pulse pointer-events-none"></div>
       <div className="absolute bottom-[-5%] right-[-5%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-blue-100 rounded-full blur-[100px] md:blur-[150px] pointer-events-none"></div>
 
       {/* Main Container*/}

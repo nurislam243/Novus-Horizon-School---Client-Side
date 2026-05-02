@@ -3,7 +3,6 @@ import useAuth from "../../hooks/useAuth"
 import useUserRole from "../../hooks/useUserRole"
 import CoreValues from "./CoreValues/CoreValues"
 import HistoricalTimeline from "./HistoricalTimeline/HistoricalTimeline"
-import PrincipalMessage from "./PrincipalMessage/PrincipalMessage"
 import StatsSection from "./StatsSection/StatsSection"
 import VisionMission from "./VisionMission/VisionMission"
 

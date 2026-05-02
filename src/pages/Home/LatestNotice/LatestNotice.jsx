@@ -53,11 +53,11 @@ const LatestNotice = () => {
           {notices.map((notice) => (
             <div 
               key={notice.id} 
-              className="bg-base-100 p-5 rounded-2xl shadow-sm border border-base-300 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:shadow-md transition-all group"
+              className="bg-base-100 p-5 rounded-[2rem] shadow-sm border border-base-300 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:shadow-md transition-all group"
             >
               <div className="flex items-center gap-5">
                 {/* Date Icon Style */}
-                <div className="bg-primary/10 text-primary p-3 rounded-xl text-center min-w-[70px]">
+                <div className="bg-primary/10 text-primary p-3 rounded-[20px] text-center min-w-[70px]">
                   <p className="text-xs font-bold uppercase">{notice.date.split(' ')[1]}</p>
                   <p className="text-xl font-black">{notice.date.split(' ')[0]}</p>
                 </div>
@@ -72,11 +72,11 @@ const LatestNotice = () => {
               {/* Action Buttons */}
               <div>
                 {notice.pdfUrl ? (
-                  <a href={notice.pdfUrl} target="_blank" rel="noreferrer" className="btn btn-sm btn-primary gap-2 rounded-lg">
+                  <a href={notice.pdfUrl} target="_blank" rel="noreferrer" className="btn btn-sm btn-primary gap-2 rounded-full">
                     <FaFilePdf /> Open PDF
                   </a>
                 ) : (
-                  <button onClick={() => setSelectedNotice(notice)} className="btn btn-sm btn-secondary btn-outline gap-2 rounded-lg">
+                  <button onClick={() => setSelectedNotice(notice)} className="btn btn-sm btn-secondary btn-outline gap-2 rounded-full">
                     <FaBookOpen /> Read More
                   </button>
                 )}
@@ -111,7 +111,7 @@ const LatestNotice = () => {
               </div>
             </div>
             <div className="p-4 bg-base-200 rounded-b-3xl text-right">
-              <button onClick={() => setSelectedNotice(null)} className="btn btn-primary px-10 rounded-xl">Got It</button>
+              <button onClick={() => setSelectedNotice(null)} className="btn btn-primary px-10 rounded-full">Got It</button>
             </div>
           </div>
         </div>

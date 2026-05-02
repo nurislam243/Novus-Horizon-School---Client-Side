@@ -57,7 +57,7 @@ const HomeGallery = () => {
           {photos.map((item) => (
             <div 
               key={item.id} 
-              className="group relative h-72 rounded-[2rem] overflow-hidden shadow-lg border-4 border-white dark:border-slate-800 transition-all duration-500 hover:shadow-2xl"
+              className="group relative h-72 rounded-[2.5rem] overflow-hidden shadow-lg transition-all duration-500 hover:shadow-2xl"
             >
               {/* Actual Image */}
               <img 

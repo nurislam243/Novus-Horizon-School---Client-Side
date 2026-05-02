@@ -59,7 +59,7 @@ const LatestNews = () => {
           {newsList.map((news) => (
             <div 
               key={news.id} 
-              className="bg-base-100 rounded-[2rem] overflow-hidden border border-base-200 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col group"
+              className="bg-base-100 rounded-[2.5rem] overflow-hidden border border-base-200 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col group"
             >
               {/* Image Container */}
               <div className="relative h-60 overflow-hidden">

@@ -17,10 +17,10 @@ const Contact = () => {
           <div className="w-20 h-1.5 bg-primary mx-auto rounded-full mt-4"></div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-384 mx-auto">
           
           {/* Left Side: Contact Form */}
-          <div className="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-[2.5rem] shadow-2xl border border-base-200">
+          <div className="p-8 md:p-10 rounded-[2.5rem] shadow-2xl">
             <h3 className="text-2xl font-bold mb-8 text-base-content">Send us a Message</h3>
             
             <form className="space-y-6">
@@ -55,7 +55,7 @@ const Contact = () => {
                 <label className="label">
                   <span className="label-text font-bold">Message</span>
                 </label>
-                <textarea className="textarea textarea-bordered h-32 bg-base-200 focus:border-primary rounded-xl" placeholder="Your message..."></textarea>
+                <textarea className="textarea textarea-bordered h-32 bg-base-200 focus:border-primary rounded-xl w-full" placeholder="Your message..."></textarea>
               </div>
 
               {/* Submit Button */}
@@ -99,7 +99,7 @@ const Contact = () => {
           </div>
 
           {/* Right Side: Map */}
-          <div className="h-full min-h-[500px] lg:min-h-full w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white dark:border-slate-800">
+          <div className="h-full min-h-[500px] lg:min-h-full w-full rounded-[2.5rem] overflow-hidden shadow-2xl">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1109.2829402580537!2d88.93452226963093!3d25.336105210709555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDIwJzEwLjAiTiA4OMKwNTYnMDYuNiJF!5e1!3m2!1sen!2sbd!4v1767671747669!5m2!1sen!2sbd" 
               className="w-full h-full min-h-[600px]"
