@@ -13,9 +13,9 @@ const PrincipalMessage = () => {
               
               {/* Actual Image */}
               <img 
-                src="https://img.freepik.com/free-photo/portrait-teacher-standing-class_23-2148784967.jpg"
+                src="https://i.ibb.co.com/1GR3LQzH/principal.jpg"
                 alt="Principal of Novus Horizon School" 
-                className="relative rounded-[2.5rem] shadow-2xl w-full h-100 object-cover"
+                className="relative rounded-[2.5rem] shadow-2xl w-full h-100 sm:h-130 md:h-190 object-cover"
               />
             </div>
           </div>
@@ -26,7 +26,7 @@ const PrincipalMessage = () => {
               <p className="text-primary font-bold uppercase tracking-[0.2em] text-xs">
                 Message From
               </p>
-              <h2 className="text-3xl md:text-4xl font-black text-base-content leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-base-content leading-tight">
                 Principal's Desk
               </h2>
             </div>

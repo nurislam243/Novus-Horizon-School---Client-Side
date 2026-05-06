@@ -39,9 +39,9 @@ const Stats = () => {
 
   return (
     <section className="py-16 bg-base-100 @[1580px]:px-0 px-4 md:px-6 lg:px-8">
-      <div className="max-w-384 mx-auto  text-center ">
+      <div className="max-w-384 mx-auto ">
         {/* Section Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-base-content">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-10 text-base-content">
           Our School at a <span className="text-primary">Glance</span>
         </h2>
 

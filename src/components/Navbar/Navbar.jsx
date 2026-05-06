@@ -46,7 +46,11 @@ const Navbar = () => {
         {/* Mobile Menu */}
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost pl-0  lg:hidden">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost pl-0  lg:hidden"
+            >
               {/* FaBars icon for mobile menu */}
               <FaBars className="text-xl" />
             </div>

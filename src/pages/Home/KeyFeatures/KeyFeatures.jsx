@@ -38,7 +38,7 @@ const KeyFeatures = () => {
           <p className="text-primary font-bold uppercase tracking-[0.2em] text-xs">
             Why Choose Us
           </p>
-          <h2 className="text-4xl font-black text-base-content">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-base-content">
             Key Features
           </h2>
           <p className="max-w-2xl mx-auto text-base-content/70 font-medium">

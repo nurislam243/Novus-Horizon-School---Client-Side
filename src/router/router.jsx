@@ -28,15 +28,15 @@ export const router = createBrowserRouter([
           Component: Home
         },
         {
-          path: "about",
+          path: "/about",
           Component: About
         },
         {
-          path: "gallery",
+          path: "/gallery",
           Component: Gallery
         },
         {
-          path: "teachers",
+          path: "/teachers",
           Component: Teachers
         },
         {

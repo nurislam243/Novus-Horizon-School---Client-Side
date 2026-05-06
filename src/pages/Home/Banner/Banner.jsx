@@ -29,7 +29,7 @@ const Banner = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-black text-white leading-[1.1]">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1]">
             Shaping Tomorrow's <br />
             <span className="text-amber-500">Leaders</span> Today
           </h1>
@@ -42,15 +42,15 @@ const Banner = () => {
 
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-5 pt-4">
-            {/* Primary Action - Results (Goes to Results Page) */}
-            <button className="btn btn-primary btn-lg rounded-xl shadow-xl shadow-indigo-500/20 group px-8">
+            {/* Primary Action - Results */}
+            <button className="btn btn-primary btn-lg rounded-full shadow-xl shadow-indigo-500/20 group px-8">
               <FaClipboardCheck className="text-xl" />
               Check Results
               <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </button>
 
             {/* Secondary Action - Admission */}
-            <button className="btn btn-outline btn-lg text-white border-white/40 hover:bg-white hover:text-black rounded-xl px-8 backdrop-blur-sm">
+            <button className="btn btn-outline btn-lg text-white border-white/40 hover:bg-white hover:text-black rounded-full px-8 backdrop-blur-sm">
               <FaGraduationCap className="text-xl" />
               Admissions Open
             </button>
