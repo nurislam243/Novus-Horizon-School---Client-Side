@@ -34,9 +34,9 @@ const LatestNotice = () => {
       <div className="container mx-auto px-4 max-w-5xl">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+        <div className="md:flex md:flex-row justify-between items-end mb-10 gap-4">
           <div className="space-y-2">
-            <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-sm">
+            <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-[0.2em] text-xs">
               <FaBullhorn className="animate-bounce" />
               <span>Stay Updated</span>
             </div>
@@ -86,9 +86,9 @@ const LatestNotice = () => {
         </div>
 
         {/* View All Button for Mobile */}
-        <div className="mt-8 md:hidden text-center">
-          <Link to="/notices" className="btn btn-primary btn-wide rounded-full">
-            View All Notices
+        <div className="mt-8 md:hidden">
+          <Link to="/notices" className="btn btn-primary btn-outline gap-2 rounded-full border-2">
+            View All Notices <FaArrowRight />
           </Link>
         </div>
       </div>

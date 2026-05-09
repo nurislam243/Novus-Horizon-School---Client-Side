@@ -48,9 +48,9 @@ const Testimonials = () => {
     <section className="py-20 bg-base-100 overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Header Section */}
-        <div className="text-center mb-16">
-          <h4 className="text-2xl md:text-3xl font-medium text-base-content/80">
-            Don’t take our word for it!
+        <div className="mb-16">
+          <h4 className="text-primary font-bold uppercase tracking-[0.2em] text-xs">
+            Don’t take our word for it! 
           </h4>
           <h2 className="text-4xl md:text-5xl font-black mt-2">
             Hear what our <span className="text-primary">Parents</span> say

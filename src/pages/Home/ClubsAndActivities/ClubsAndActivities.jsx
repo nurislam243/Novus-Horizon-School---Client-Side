@@ -52,14 +52,13 @@ const ClubsAndActivities = () => {
       <div className="container mx-auto px-4">
         
         {/* Section Header */}
-        <div className="text-center mb-16 space-y-3">
+        <div className="mb-16 space-y-3">
           <p className="text-primary font-bold uppercase tracking-[0.2em] text-sm">
             Holistic Development
           </p>
-          <h2 className="text-4xl md:text-5xl font-black text-base-content uppercase">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-base-content">
             Beyond <span className="text-primary">Academics</span>
           </h2>
-          <div className="w-24 h-1.5 bg-primary mx-auto rounded-full mt-4"></div>
         </div>
 
         {/* Clubs Grid */}

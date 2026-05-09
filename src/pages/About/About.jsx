@@ -5,12 +5,6 @@ import StatsSection from "./StatsSection/StatsSection"
 import VisionMission from "./VisionMission/VisionMission"
 
 const About = () => {
-
-  // const { role } = useUserRole();
-  // const { user } = useAuth();
-  // console.log(user.email)
-  // console.log(role);
-  // console.log(user)
   return (
     <div>
       <PageBanner></PageBanner>

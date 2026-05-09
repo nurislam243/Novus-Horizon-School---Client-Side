@@ -7,14 +7,13 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         
         {/* Section Header */}
-        <div className="text-center mb-16 space-y-2">
+        <div className="mb-16 space-y-2">
           <p className="text-primary font-bold uppercase tracking-[0.2em] text-xs">
             Get In Touch
           </p>
-          <h2 className="text-4xl md:text-5xl font-black text-base-content uppercase">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-base-content">
             Contact <span className="text-primary">Us</span>
           </h2>
-          <div className="w-20 h-1.5 bg-primary mx-auto rounded-full mt-4"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-384 mx-auto">
@@ -92,7 +91,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-xs font-bold uppercase text-base-content/40 tracking-widest">Email</p>
-                  <p className="font-bold">info@sunriseschool.edu</p>
+                  <p className="font-bold">info@novushorizonschool.edu</p>
                 </div>
               </div>
             </div>
