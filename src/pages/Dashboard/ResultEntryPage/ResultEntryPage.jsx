@@ -104,62 +104,93 @@ const ResultEntryPage = ({ onBack }) => {
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
-      <div className="max-w-7xl mx-auto mb-6 flex justify-between items-center">
+      <div className="w-full mb-6 flex justify-between items-center">
         <button
           onClick={onBack}
           className="flex items-center gap-2 text-gray-600 hover:text-blue-600"
         >
           <FaArrowLeft /> Back
         </button>
-        <h2 className="text-2xl font-bold">Entry: {examData.examName}</h2>
-        <button
-          onClick={handleSave}
-          disabled={saving}
-          className="bg-green-600 text-white px-6 py-2 rounded shadow hover:bg-green-700"
-        >
-          {saving ? "Saving..." : "Save All"}
-        </button>
       </div>
 
-      <div className="max-w-7xl mx-auto bg-white rounded-lg shadow overflow-x-auto">
-        <table className="w-full border-collapse border border-gray-300">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="border p-2">Roll</th>
-              <th className="border p-2">Name</th>
-              {examData.subjectsConfig.map((sub) => (
-                <th key={sub.name} className="border p-2">
-                  {sub.name}
+      <div className="w-full bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+        {/* Header Section */}
+        <div className="p-5 border-b border-gray-100 bg-gray-50/50 flex justify-between items-center">
+          <h2 className="text-xl font-bold text-gray-800 tracking-tight">
+            Second Terminal Exam
+          </h2>
+          <button
+            onClick={handleSave}
+            disabled={saving}
+            className="btn btn-primary hover:btn-outline hover:border-2 border-primary hover:text-primary font-bold px-4 rounded-xl hover:bg-transparent"
+          >
+            {saving ? "Saving..." : "Save All"}
+          </button>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
+            <thead>
+              <tr className="bg-white border-b-2 border-gray-100">
+                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500 text-left">
+                  Roll
                 </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {allResults.map((studentRow) => (
-              <tr key={studentRow.studentOid} className="hover:bg-gray-50">
-                <td className="border p-2 text-center">{studentRow.roll}</td>
-                <td className="border p-2">{studentRow.name}</td>
-                {studentRow.subjects.map((sub) => (
-                  <td key={sub.subjectName} className="border p-2 text-center">
-                    <input
-                      type="number"
-                      className="w-16 border rounded p-1 text-center"
-                      value={sub.obtainedMarks}
-                      onChange={(e) =>
-                        handleMarkChange(
-                          studentRow.studentOid,
-                          sub.subjectName,
-                          e.target.value,
-                          sub.fullMarks,
-                        )
-                      }
-                    />
-                  </td>
+                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500 text-left min-w-[200px]">
+                  Student Name
+                </th>
+                {examData.subjectsConfig.map((sub) => (
+                  <th
+                    key={sub.name}
+                    className="px-4 py-4 text-xs font-bold uppercase tracking-wider text-gray-500 text-center"
+                  >
+                    {sub.name}
+                  </th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {allResults.map((studentRow) => (
+                <tr
+                  key={studentRow.studentOid}
+                  className="hover:bg-indigo-50/30 transition-colors group"
+                >
+                  <td className="px-6 py-4 text-sm font-semibold text-gray-700">
+                    #{studentRow.roll}
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="font-medium text-gray-900">
+                      {studentRow.name}
+                    </div>
+                    <div className="text-xs text-gray-400">
+                      Class: 10 | Section: A
+                    </div>{" "}
+                    {/* Example sub-text */}
+                  </td>
+                  {studentRow.subjects.map((sub) => (
+                    <td key={sub.subjectName} className="px-4 py-4 text-center">
+                      <input
+                        type="number"
+                        placeholder="00"
+                        className="w-14 h-10 border-2 border-gray-100 rounded-lg text-center font-bold text-gray-700 
+                             focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none
+                             transition-all bg-gray-50 group-hover:bg-white [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ..."
+                        value={sub.obtainedMarks}
+                        onChange={(e) =>
+                          handleMarkChange(
+                            studentRow.studentOid,
+                            sub.subjectName,
+                            e.target.value,
+                            sub.fullMarks,
+                          )
+                        }
+                      />
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
